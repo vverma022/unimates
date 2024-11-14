@@ -9,14 +9,40 @@ export default function LandingPage() {
     <div className="flex flex-col min-h-screen">
       <HeaderWithoutNav />
       <main className="flex-1 flex flex-col items-center">
-        <section className="w-full min-h-screen flex items-center justify-center">
-          <div className="container px-4 md:px-6 max-w-7xl mx-auto">
+        <section className="w-full min-h-screen flex items-center justify-center relative overflow-hidden">
+          <div 
+            className="absolute inset-0 bg-gradient-to-br animate-gradient"
+            style={{
+              backgroundImage: `linear-gradient(45deg, 
+                rgba(15, 23, 42, 1),
+                rgba(56, 189, 248, 0.8),
+                rgba(59, 130, 246, 0.9),
+                rgba(29, 78, 216, 0.8),
+                rgba(15, 23, 42, 1)
+              )`,
+              backgroundSize: '400% 400%',
+              animation: 'gradient 15s ease infinite'
+            }}
+          />
+          <div 
+            className="absolute inset-0 opacity-30"
+            style={{
+              backgroundImage: `
+                radial-gradient(circle at center, transparent 0%, rgba(15, 23, 42, 0.8) 100%),
+                linear-gradient(rgba(15, 23, 42, 0.2) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(15, 23, 42, 0.2) 2px, transparent 2px)
+              `,
+              backgroundSize: '100% 100%, 40px 40px, 40px 40px',
+              animation: 'wave 10s linear infinite'
+            }}
+          />
+          <div className="container px-4 md:px-6 max-w-7xl mx-auto relative z-10">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-white">
                   Connect with Freshers Nationwide
                 </h1>
-                <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
+                <p className="mx-auto max-w-[700px] text-gray-200 md:text-xl">
                   Meet, network, and make lifelong friends with freshers from colleges across the country.
                 </p>
               </div>
