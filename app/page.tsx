@@ -55,7 +55,7 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
-        <section className="w-full min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-800">
+        <section className="w-full min-h-96 flex items-center justify-center bg-gray-100 dark:bg-gray-800">
           <div className="container px-4 md:px-6 max-w-7xl mx-auto">
             <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
               <div className="flex flex-col items-center space-y-4 text-center">
@@ -76,18 +76,27 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
-        <section className="w-full min-h-screen flex items-center justify-center">
-          <div className="container px-4 md:px-6 max-w-7xl mx-auto">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+        <section className="w-full flex items-center justify-center">
+          <div className="container px-2 md:px-6 max-w-7xl mx-auto">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center space-x-4">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Hear from Our Users</h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl p-6">Hear from Our Users</h2>
                 <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
                   Discover how FresherConnect has transformed the college experience for students across the country.
                 </p>
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
-              <div className="flex flex-col justify-center space-y-4">
+              <div className="flex flex-col justify-center space-y-4 border-blue-300 border-2 p-4 rounded-2xl">
+                <blockquote className="text-lg font-semibold leading-snug lg:text-xl lg:leading-normal xl:text-2xl">
+                  "FresherConnect helped me find my best friends and study partners from day one. It's an essential app for every college freshman!"
+                </blockquote>
+                <div className="mt-4">
+                  <p className="font-semibold">Sarah J.</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">Computer Science, Class of 2025</p>
+                </div>
+              </div>
+              <div className="flex flex-col justify-center space-y-4 border-blue-300 border-2 p-4 rounded-lg">
                 <blockquote className="text-lg font-semibold leading-snug lg:text-xl lg:leading-normal xl:text-2xl">
                   "FresherConnect helped me find my best friends and study partners from day one. It's an essential app for every college freshman!"
                 </blockquote>
@@ -99,7 +108,7 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
-        <section className="w-full min-h-screen flex items-center justify-center bg-primary text-primary-foreground">
+        <section className="w-full min-h-96 flex items-center justify-center bg-primary text-primary-foreground">
           <div className="container px-4 md:px-6 max-w-7xl mx-auto">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
