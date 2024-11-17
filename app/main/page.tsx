@@ -9,8 +9,9 @@ export default function Home() {
       major: "Computer Science",
       year: "3",
       content: "Just finished my machine learning project! Anyone else working on ML algorithms?",
-      likes: 15,
-      comments: 3
+      instagram: "https://instagram.com",
+      twitter: "https://twitter.com",
+      facebook: "https://facebook.com"
     },
     {
       author: "Bob Smith",
@@ -18,8 +19,9 @@ export default function Home() {
       major: "Engineering",
       year: "2",
       content: "Looking for study partners for the upcoming physics exam. Any takers?",
-      likes: 8,
-      comments: 5
+      instagram: "https://instagram.com",
+      twitter: "https://twitter.com",
+      facebook: "https://facebook.com"
     },
     {
       author: "Charlie Brown",
@@ -27,8 +29,9 @@ export default function Home() {
       major: "Business",
       year: "4",
       content: "Internship opportunity alert! My company is hiring summer interns. DM for details.",
-      likes: 32,
-      comments: 12
+      instagram: "https://instagram.com",
+      twitter: "https://twitter.com",
+      facebook: "https://facebook.com"
     }
   ]
 
