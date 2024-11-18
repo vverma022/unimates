@@ -87,7 +87,7 @@ export default function LandingPage() {
               </div>
             </div>
             <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
-              <div className="flex flex-col justify-center space-y-4 border-blue-300 border-2 p-4 rounded-2xl">
+              <div className="flex flex-col justify-center space-y-4 bg-gray-300 border-2 p-4 rounded-2xl">
                 <blockquote className="text-lg font-semibold leading-snug lg:text-xl lg:leading-normal xl:text-2xl">
                   "FresherConnect helped me find my best friends and study partners from day one. It's an essential app for every college freshman!"
                 </blockquote>
@@ -96,7 +96,7 @@ export default function LandingPage() {
                   <p className="text-sm text-gray-500 dark:text-gray-400">Computer Science, Class of 2025</p>
                 </div>
               </div>
-              <div className="flex flex-col justify-center space-y-4 border-blue-300 border-2 p-4 rounded-lg">
+              <div className="flex flex-col justify-center space-y-4 bg-gray-300 border-2 p-4 rounded-lg">
                 <blockquote className="text-lg font-semibold leading-snug lg:text-xl lg:leading-normal xl:text-2xl">
                   "FresherConnect helped me find my best friends and study partners from day one. It's an essential app for every college freshman!"
                 </blockquote>
