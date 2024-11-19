@@ -9,6 +9,7 @@ import HeaderWithoutNav from '../mcomponents/header'
 import { useState } from 'react'
 import background from '@/public/Uni.png'
 import { useRouter } from "next/navigation"
+import { GoogleSignInButton } from '../mcomponents/authbutton'
 
 export default function SignInPage() {
   const router = useRouter()
@@ -97,6 +98,8 @@ export default function SignInPage() {
                 Sign in
               </Button>
             </form>
+            <p className="text-center text-sm text-muted-foreground">OR</p>
+            <GoogleSignInButton />
             <p className="mt-2 text-center text-sm text-muted-foreground">
               Not a member?{' '}
               <Link href="/signup" className="font-medium text-primary hover:underline">
