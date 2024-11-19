@@ -8,8 +8,10 @@ import { Label } from "@/components/ui/label"
 import HeaderWithoutNav from '../mcomponents/header'
 import { useState } from 'react'
 import background from '@/public/Uni.png'
+import { useRouter } from "next/navigation"
 
 export default function SignInPage() {
+  const router = useRouter()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -17,6 +19,7 @@ export default function SignInPage() {
     e.preventDefault()
     // Handle sign-in logic here
     console.log('Sign in attempted with:', email, password)
+    router.push('/main')
   }
 
   return (

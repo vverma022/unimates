@@ -39,10 +39,12 @@ export default function HeaderWithConditionalProfile() {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-56" align="end" forceMount>
-            <DropdownMenuItem>
-              <User className="mr-2 h-4 w-4" />
-              <span>Profile</span>
-            </DropdownMenuItem>
+          <DropdownMenuItem>
+  <Link href="/createprofile" passHref className='flex items-center'>
+      <User className="mr-2 h-4 w-4" />
+      <span>Profile</span>
+  </Link>
+</DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               <LogOut className="mr-2 h-4 w-4" />

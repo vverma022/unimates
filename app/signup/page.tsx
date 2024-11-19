@@ -8,8 +8,10 @@ import { Label } from "@/components/ui/label"
 import HeaderWithoutNav from '../mcomponents/header'
 import { useState } from 'react'
 import background from '@/public/Uni.png'
+import { useRouter } from "next/navigation"
 
 export default function SignUpPage() {
+  const router = useRouter()
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -19,6 +21,8 @@ export default function SignUpPage() {
     e.preventDefault()
     // Handle sign-up logic here
     console.log('Sign up attempted with:', { name, email, password, college })
+    // After successful signup, redirect to create profile page
+    router.push('/createprofile')
   }
 
   return (
