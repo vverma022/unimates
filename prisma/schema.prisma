@@ -14,10 +14,33 @@ datasource db {
 }
 
 model User {
-  id       Int      @id @default(autoincrement()) // Primary key
-  email    String   @unique                      // Unique email
-  username String   @unique                      // Unique username
-  password String                               // Password (hashed for security)
-  createdAt DateTime @default(now())             // Timestamp for creation
+  id          Int      @id @default(autoincrement()) // Primary key
+  email       String   @unique                      // Unique email
+  username    String   @unique                      // Unique username
+  password    String                                // Password (hashed for security)
+  createdAt   DateTime @default(now())              // Timestamp for creation
+  description String?                               // User's self-description
+  profilePhoto String?                              // Profile photo URL
+
+  // Relation field
+  profile     Profile?
 }
 
+model Profile {
+  id              Int      @id @default(autoincrement()) // Primary key
+  enrollmentYear  Int                                 // Enrollment year
+  graduationYear  Int                                 // Graduation year
+  course          String                              // Course
+  major           String                              // Major
+  country         String                              // Country
+  state           String                              // State
+  city            String                              // City
+  instagram       String?                             // Instagram profile link
+  twitter         String?                             // Twitter profile link
+  facebook        String?                             // Facebook profile link
+  photoLink       String?                             // Optional link to an external photo
+
+  // Foreign key relation
+  userId          Int      @unique
+  user            User     @relation(fields: [userId], references: [id])
+}
