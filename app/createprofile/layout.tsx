@@ -9,7 +9,6 @@ interface CreateProfileProps {
 export default function CreateProfile({ children }: CreateProfileProps) {
   return (
       <div>
-        <HeaderWithoutNav />
         {children}
       </div>
   )

@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Progress } from "@/components/ui/progress"
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import HeaderWithoutNav from '../mcomponents/header'
 
 export default function CreateProfile() {
   const [step, setStep] = useState(1)
@@ -37,8 +38,11 @@ export default function CreateProfile() {
   const prevStep = () => setStep(prev => Math.max(prev - 1, 1))
 
   return (
-    <div className="container mx-auto p-4">
-      <Card className="w-full max-w-2xl mx-auto">
+    <>
+     <HeaderWithoutNav/>
+    <div className="flex container mx-auto p-4 items-center justify-center h-screen">
+       
+      <Card className="w-full max-w-2xl mx-auto ">
         <CardHeader>
           <CardTitle>Create Your Profile</CardTitle>
           <CardDescription>Step {step} of {totalSteps}</CardDescription>
@@ -200,6 +204,7 @@ export default function CreateProfile() {
         </CardFooter>
       </Card>
     </div>
+    </>
   )
 }
 
