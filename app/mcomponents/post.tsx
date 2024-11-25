@@ -2,10 +2,13 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import {Share2, Instagram, Facebook, Twitter } from 'lucide-react'
+import ShareButton from "./sharebutton"
 
 interface PostProps {
   author: string
   avatar: string
+  state: string
+  city: string
   major: string
   year: string
   content: string
@@ -14,7 +17,7 @@ interface PostProps {
   facebook: string
 }
 
-export default function Post({ author, avatar, major, year, content, instagram, twitter, facebook}: PostProps) {
+export default function Post({ author, avatar,state,city, major, year, content, instagram, twitter, facebook}: PostProps) {
   return (
     <Card className="mb-6">
       <CardHeader className="flex flex-row items-center gap-4">
@@ -25,6 +28,7 @@ export default function Post({ author, avatar, major, year, content, instagram, 
         <div>
           <h3 className="text-lg font-semibold">{author}</h3>
           <p className="text-sm text-muted-foreground">{major}, Year {year}</p>
+          <p className="text-sm text-muted-foreground">From {state} {city}</p>
         </div>
       </CardHeader>
       <CardContent>
@@ -51,10 +55,7 @@ export default function Post({ author, avatar, major, year, content, instagram, 
             </a>
           </Button>
         </div>
-        <Button variant="ghost" size="sm">
-          <Share2 className="mr-2 h-4 w-4" />
-          Share
-        </Button>
+       <ShareButton/>
       </CardFooter>
     </Card>
   )

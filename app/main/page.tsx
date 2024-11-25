@@ -1,3 +1,4 @@
+import { stat } from "fs"
 import Filters from "../mcomponents/filters"
 import Post from "../mcomponents/post"
 
@@ -6,6 +7,8 @@ export default function Home() {
     {
       author: "Alice Johnson",
       avatar: "/placeholder.svg?height=40&width=40",
+      state: "California",
+      city: "Los Angeles",
       major: "Computer Science",
       year: "3",
       content: "Just finished my machine learning project! Anyone else working on ML algorithms?",
@@ -16,6 +19,8 @@ export default function Home() {
     {
       author: "Bob Smith",
       avatar: "/placeholder.svg?height=40&width=40",
+      state: "New York",
+      city: "New York City",
       major: "Engineering",
       year: "2",
       content: "Looking for study partners for the upcoming physics exam. Any takers?",
@@ -26,6 +31,8 @@ export default function Home() {
     {
       author: "Charlie Brown",
       avatar: "/placeholder.svg?height=40&width=40",
+      state: "Texas",
+      city: "Austin",
       major: "Business",
       year: "4",
       content: "Internship opportunity alert! My company is hiring summer interns. DM for details.",
