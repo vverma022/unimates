@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label"
 import HeaderWithoutNav from '../mcomponents/header'
 import { useState } from 'react'
 import { useRouter } from "next/navigation"
+import axios from 'axios'
 
 export default function SignUpPage() {
   const router = useRouter()
@@ -15,11 +16,20 @@ export default function SignUpPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log('Sign up attempted with:', { name, email, password})
-    router.push('/createprofile')
-  }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post("/api/signup", {
+        email,
+        name,
+        password,
+      });
+      console.log("Sign-up successful:", response.data);
+      router.push("/createprofile");
+    } catch (error) {
+      alert("Sign-up failed. Please try again.");
+    }
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
