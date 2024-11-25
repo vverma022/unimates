@@ -14,11 +14,10 @@ export default function SignUpPage() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [college, setCollege] = useState('')
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Sign up attempted with:', { name, email, password, college })
+    console.log('Sign up attempted with:', { name, email, password})
     router.push('/createprofile')
   }
 
@@ -71,18 +70,6 @@ export default function SignUpPage() {
                   required 
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="mt-1"
-                />
-              </div>
-              <div>
-                <Label htmlFor="college">College</Label>
-                <Input 
-                  id="college" 
-                  name="college" 
-                  type="text" 
-                  required 
-                  value={college}
-                  onChange={(e) => setCollege(e.target.value)}
                   className="mt-1"
                 />
               </div>
