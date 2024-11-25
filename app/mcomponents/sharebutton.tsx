@@ -6,6 +6,7 @@ import { Share2 } from "lucide-react";
 import { Instagram, Facebook, Copy, MessageCircle } from "lucide-react"; 
 
 export default function ShareButton() {
+    
   const sharePost = () => {
     const url = window.location.href;
     if (navigator.share) {

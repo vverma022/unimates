@@ -9,6 +9,7 @@ import { Progress } from "@/components/ui/progress"
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import HeaderWithoutNav from '../mcomponents/header'
 
+
 export default function CreateProfile() {
   const [step, setStep] = useState(1)
   const [profile, setProfile] = useState({
