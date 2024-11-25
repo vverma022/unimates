@@ -95,7 +95,7 @@ export default function CreateProfile() {
                 <Input
                   id="course"
                   name="course"
-                  placeholder="e.g., Computer Science"
+                  placeholder="e.g., BTech"
                   value={profile.course}
                   onChange={handleInputChange}
                 />
@@ -189,6 +189,7 @@ export default function CreateProfile() {
                   name="photoLink"
                   placeholder="Link to your profile photo"
                   value={profile.photoLink}
+                  type='file'
                   onChange={handleInputChange}
                 />
               </div>
