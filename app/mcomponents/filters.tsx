@@ -1,3 +1,4 @@
+"use client"
 import { Button } from "@/components/ui/button"
 import {
   Select,
@@ -7,10 +8,39 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 
-export default function Filters() {
+interface FiltersProps {
+  setFilters: React.Dispatch<React.SetStateAction<any>>
+}
+
+interface FilterState {
+  state: string;
+  city: string;
+  major: string;
+  year: string;
+}
+
+export default function Filters({ setFilters }: FiltersProps) {
+  // Handle filter change
+  const handleFilterChange = (value: string, field: keyof FilterState) => {
+    setFilters((prevFilters: FilterState) => ({
+      ...prevFilters,
+      [field]: value,
+    }))
+  }
+
+  // Clear all filters
+  const handleClearFilters = () => {
+    setFilters({
+      state: "",
+      city: "",
+      major: "",
+      year: "",
+    })
+  }
+
   return (
     <div className="flex flex-wrap gap-4 mb-6">
-      <Select>
+      <Select onValueChange={(value) => handleFilterChange(value, "state")}>
         <SelectTrigger className="w-[180px]">
           <SelectValue placeholder="State" />
         </SelectTrigger>
@@ -20,11 +50,10 @@ export default function Filters() {
           <SelectItem value="ka">Karnataka</SelectItem>
           <SelectItem value="tn">Tamil Nadu</SelectItem>
           <SelectItem value="up">Uttar Pradesh</SelectItem>
-          {/* Add more states as needed */}
         </SelectContent>
       </Select>
 
-      <Select>
+      <Select onValueChange={(value) => handleFilterChange(value, "city")}>
         <SelectTrigger className="w-[180px]">
           <SelectValue placeholder="City" />
         </SelectTrigger>
@@ -34,11 +63,10 @@ export default function Filters() {
           <SelectItem value="bangalore">Bangalore</SelectItem>
           <SelectItem value="chennai">Chennai</SelectItem>
           <SelectItem value="hyderabad">Hyderabad</SelectItem>
-          {/* Add more cities as needed */}
         </SelectContent>
       </Select>
 
-      <Select>
+      <Select onValueChange={(value) => handleFilterChange(value, "major")}>
         <SelectTrigger className="w-[180px]">
           <SelectValue placeholder="Major" />
         </SelectTrigger>
@@ -50,7 +78,7 @@ export default function Filters() {
         </SelectContent>
       </Select>
 
-      <Select>
+      <Select onValueChange={(value) => handleFilterChange(value, "year")}>
         <SelectTrigger className="w-[180px]">
           <SelectValue placeholder="Year" />
         </SelectTrigger>
@@ -62,7 +90,9 @@ export default function Filters() {
         </SelectContent>
       </Select>
 
-      <Button variant="outline">Clear Filters</Button>
+      <Button variant="outline" onClick={handleClearFilters}>
+        Clear Filters
+      </Button>
     </div>
   )
 }

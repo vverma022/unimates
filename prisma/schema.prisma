@@ -14,33 +14,33 @@ datasource db {
 }
 
 model User {
-  id          Int      @id @default(autoincrement()) // Primary key
-  email       String   @unique                      // Unique email
-  username    String   @unique                      // Unique username
-  password    String                                // Password (hashed for security)
-  createdAt   DateTime @default(now())              // Timestamp for creation
-  description String?                               // User's self-description
-  profilePhoto String?                              // Profile photo URL
+  id       Int      @id @default(autoincrement()) // Primary key
+  email    String   @unique                      // Unique email
+  password String                                // Password (hashed for security)
+  username String                                // User's name
 
   // Relation field
-  profile     Profile?
+  profile  Profile?  @relation("UserProfile")
 }
 
 model Profile {
   id              Int      @id @default(autoincrement()) // Primary key
-  enrollmentYear  Int                                 // Enrollment year
-  graduationYear  Int                                 // Graduation year
-  course          String                              // Course
-  major           String                              // Major
-  country         String                              // Country
-  state           String                              // State
-  city            String                              // City
-  instagram       String?                             // Instagram profile link
-  twitter         String?                             // Twitter profile link
-  facebook        String?                             // Facebook profile link
-  photoLink       String?                             // Optional link to an external photo
+  name            String                               // User's name
+  gender          String                               // Gender (e.g., Male, Female, etc.)
+  course          String                               // Course name
+  major           String                               // Major
+  city            String                               // City
+  state           String                               // State
+  country         String                               // Country
+  instagram       String?                              // Instagram profile link
+  twitter         String?                              // Twitter profile link
+  facebook        String?                              // Facebook profile link
+  description     String?                              // User's self-description
+  enrollmentYear  Int                                  // Year the user entered university
+  graduationYear  Int                                  // Expected graduation year
 
-  // Foreign key relation
-  userId          Int      @unique
-  user            User     @relation(fields: [userId], references: [id])
+  // Relation field
+  user            User     @relation("UserProfile", fields: [userId], references: [id])
+
+  userId          Int      @unique // Foreign key to the User model
 }

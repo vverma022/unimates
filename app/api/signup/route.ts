@@ -1,32 +1,63 @@
-import { NextResponse } from "next/server";
-import prisma from "@/lib/prisma";
-import bcrypt from "bcrypt";
-
+import prisma from '@/lib/prisma'; // Import the Prisma client
+import { hash } from 'bcrypt';
 
 export async function POST(req: Request) {
-  const { name, email, password } = await req.json();
+    try {
+        const body = await req.json();
+        const { email, password, username } = body;
 
-  // Input validation
-  if (!name || !email || !password) {
-    return NextResponse.json({ error: "All fields are required" }, { status: 400 });
-  }
+        // Ensure that the required fields are provided
+        if (!email || !password || !username) {
+            return new Response(
+                JSON.stringify({ error: 'Email, password, and username are required.' }),
+                { status: 400 }
+            );
+        }
 
-  try {
-    // Hash the password before storing it
-    const hashedPassword = await bcrypt.hash(password, 10);
+        // Check if the email already exists in the database
+        const existingUser = await prisma.user.findUnique({
+            where: { email },
+        });
 
-    // Create the user in the database
-    const user = await prisma.user.create({
-      data: {
-        username: name,
-        email: email,
-        password: hashedPassword,
-      },
-    });
+        if (existingUser) {
+            return new Response(
+                JSON.stringify({ error: 'Email already in use.' }),
+                { status: 400 }
+            );
+        }
 
-    return NextResponse.json({ message: "User created successfully", user }, { status: 201 });
-  } catch (error) {
-    console.error("Error creating user:", error);
-    return NextResponse.json({ error: "Failed to create user" }, { status: 500 });
-  }
+        // Hash the password using bcrypt
+        const hashedPassword = await hash(password, 10);
+
+        // Create a new user in the database
+        const newUser = await prisma.user.create({
+            data: {
+                email,
+                password: hashedPassword,
+                username,
+            },
+        });
+
+        // Respond with a success message and the new user details (excluding password)
+        return new Response(
+            JSON.stringify({
+                message: 'User registered successfully.',
+                user: { id: newUser.id, email: newUser.email, username: newUser.username },
+            }),
+            { status: 201 }
+        );
+    } catch (error: unknown) {
+        // Handle any errors that might occur during the user creation process
+        if (error instanceof Error) {
+            return new Response(
+                JSON.stringify({ error: 'Internal server error.', details: error.message }),
+                { status: 500 }
+            );
+        } else {
+            return new Response(
+                JSON.stringify({ error: 'Internal server error.' }),
+                { status: 500 }
+            );
+        }
+    }
 }
