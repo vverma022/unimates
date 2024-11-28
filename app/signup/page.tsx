@@ -32,13 +32,10 @@ export default function SignUpPage() {
         }, 5000);
 
     } catch (error) {
-        // Handle errors (Axios automatically parses the error response)
         if (axios.isAxiosError(error) && error.response) {
-            // If the error has a response, it's from the backend
             const errorResponse = error.response.data;
             alert(errorResponse.error || 'An unexpected error occurred.');
         } else {
-            // If it's not an Axios error (e.g., network issues)
             console.error('Error during signup:', error);
             alert('An unexpected error occurred. Please try again.');
         }
